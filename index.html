@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieFinder</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1 class="logo">OMDB FİLM</h1>
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" placeholder="Film veya dizi ara..." autocomplete="off">
+                <button id="searchBtn">Ara</button>
+                <div id="suggestionsList" class="suggestions-box"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="featured-section">
+            <h2 class="section-title">Popüler Keşifler</h2>
+            <div class="slider-container">
+                <button class="slider-btn prev">❮</button>
+                <div id="featuredSlider" class="slider"></div>
+                <button class="slider-btn next">❯</button>
+            </div>
+        </section>
+
+        <div class="main-layout">
+            <aside class="filters">
+                <h3>Filtreler</h3>
+                <div class="filter-group">
+                    <label>Tür</label>
+                    <select id="typeFilter">
+                        <option value="">Hepsi</option>
+                        <option value="movie">Film</option>
+                        <option value="series">Dizi</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Yıl</label>
+                    <input type="number" id="yearFilter" placeholder="Yıl...">
+                </div>
+            </aside>
+
+            <section class="results-section">
+                <h2 class="section-title">Arama Sonuçları</h2>
+                <div id="movieDisplay" class="movie-display"></div>
+            </section>
+        </div>
+    </main>
+
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
