@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlassFlix - Modern Film Arama Motoru</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🍿 GlassFlix</div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Film veya dizi ara... (Örn: Inception)"
+                    autocomplete="off">
+                <button id="searchBtn">🔍 Ara</button>
+                <div id="suggestionsList" class="suggestions-box"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <section class="featured-section">
+            <h2 class="section-title">✨ Popüler Keşifler</h2>
+            <div class="slider-container">
+                <button class="slider-btn prev">❮</button>
+                <div id="featuredSlider" class="slider"></div>
+                <button class="slider-btn next">❯</button>
+            </div>
+        </section>
+
+        <div class="main-layout">
+            <aside class="sidebar">
+                <h3>🎭 Filtreler</h3>
+                <div class="filter-group">
+                    <label class="filter-label">Tür</label>
+                    <select id="typeFilter">
+                        <option value="">Hepsi</option>
+                        <option value="movie">Film</option>
+                        <option value="series">Dizi</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Yıl</label>
+                    <input type="number" id="yearFilter" placeholder="Örn: 2024" class="custom-input">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Kategori</label>
+                    <select id="genreFilter" class="custom-input">
+                        <option value="">Tümü</option>
+                        <option value="Action">Aksiyon</option>
+                        <option value="Comedy">Komedi</option>
+                        <option value="Drama">Dram</option>
+                        <option value="Horror">Korku</option>
+                        <option value="Sci-Fi">Bilim Kurgu</option>
+                        <option value="Animation">Animasyon</option>
+                    </select>
+                </div>
+                <div class="filter-group"
+                    style="margin-top: 30px; border-top: 1px solid var(--glass-border); padding-top: 20px;">
+                    <label class="filter-label">Görünüm Modu</label>
+                    <button id="themeToggle"
+                        style="width: 100%; border-radius: 10px; padding: 10px; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text); cursor: pointer;">
+                        ☀️ Gündüz Modu
+                    </button>
+                </div>
+
+            </aside>
+
+            <section class="results-section">
+                <h2 class="section-title">🎬 Arama Sonuçları</h2>
+                <div id="movieDisplay" class="movie-display">
+                    <section class="results-section">
+                        <h2 class="section-title">🎬 Arama Sonuçları</h2>
+                        <div id="movieDisplay" class="movie-display"></div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
