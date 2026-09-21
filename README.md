@@ -1,86 +1,119 @@
-# OMDB Movie Search Project
+<div align="center">
 
-## How to Set Up Your Repository
+  # 🍿 FilmFluff - OMDb Film ve Dizi Keşif Platformu
 
-**WARNING**: This is a template project. Do not fork this repository.
+  **OMDb API Kullanılarak Geliştirilmiş Modern, Cam Efektli (Glassmorphic) Tek Sayfa Film Arama Uygulaması (SPA)**
 
-Please follow the visual steps below to create and set up the project repository on your own GitHub profile.
+  [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+  [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+  [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  [![OMDb API](https://img.shields.io/badge/OMDb%20API-Yellow?style=for-the-badge&logo=imdb&logoColor=black)](https://www.omdbapi.com/)
+  [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
-1. Click the **"Use this template"** button at the top right of this page.
+  [Özellikler](#-öne-çıkan-özellikler) •
+  [Teknolojiler](#-kullanılan-teknolojiler) •
+  [Proje Yapısı](#-proje-dizin-yapısı) •
+  [Kurulum ve Kullanım](#-kurulum-ve-kullanım) •
+  [API Bilgisi](#-omdb-api-yapılandırması)
 
-<img width="1920" height="1080" alt="Use this template example" src="https://github.com/user-attachments/assets/137c0f6c-bc6c-4584-8752-02c067051438" />
-<br><br>
-
-2. Select **"Create a new repository"** to generate your own public repository for this task.
-
-<img width="1920" height="1080" alt="Create a new repository" src="https://github.com/user-attachments/assets/87b9032e-6e10-4679-88bb-c42a98894edf" />
-<br><br>
-
-3. Name your repository as **"omdb-project"** and click the **"Create repository"** button.
-
-<img width="1920" height="1080" alt="Create repository" src="https://github.com/user-attachments/assets/dd808d69-6ade-4903-8f77-831b643dbdff" />
-<br><br>
-
-Upload all of your solutions to `github.com/yourusername/omdb-project`.
+</div>
 
 ---
 
-## Overview
+## 📌 Proje Hakkında
 
-This project is designed to evaluate your coding skills in web development. You are required to build a simple web application that consumes the [OMDB API](http://www.omdbapi.com/).
+**FilmFluff**, sinemaseverlerin film ve dizileri kolayca aramasını, detaylı IMDb puanlarını, oyuncu kadrolarını, yönetmen ve özet bilgilerini görüntülemesini sağlayan **Single Page Application (SPA)** mimarisinde geliştirilmiş bir web uygulamasıdır.
 
-* The application must be a fully responsive **Single Page Application (SPA)** and should display movie details such as **title, year, genre, director, and poster**.
-* The application must be written using **HTML, CSS, and JavaScript**.
-* If your project meets all the requirements, you may extend it with additional functionalities.
-* After development, you must deploy the project using [GitHub Pages](https://pages.github.com). **Projects that are not deployed to GitHub Pages will not be evaluated and will receive 0 points.**
-
-You must **create your own repository using this template** and upload your work there. 
-Do **not** attempt to push changes directly to this repository or any of its original branches.
+Uygulama [OMDb API](https://www.omdbapi.com/) (Open Movie Database) servisinden canlı veri çeker. Şık Glassmorphism (buzlu cam) arayüz tasarımı, Gece/Gündüz tema seçeneği ve gelişmiş filtreleme seçenekleriyle kullanıcı dostu bir deneyim sunar.
 
 ---
 
-## Functional Requirements
+## ✨ Öne Çıkan Özellikler
 
-1. **Movie Search Input**
-   - Users must be able to enter a movie name and trigger a search.
-   - A search box and button are sufficient, but adding well-composed UI elements (e.g., filters similar to sahibinden.com) will earn bonus points.
-
-2. **Display Movie Details**
-   - Show at least: Title, Year, Genre, Director, and Poster image.
-   - The design is up to you.
-
-3. **Error Handling**
-   - If the movie is not found or the API returns an error, display a clear message to the user.
-   - Unhandled errors will result in point deductions.
-
-4. **Multiple Searches**
-   - Users should be able to perform multiple searches without refreshing the page.
-   - If the page is refreshed, the last search view should be retained (e.g., using LocalStorage or URL parameters).
-
-5. **Backend Proxy (Optional)**
-   - If you implement a backend, it should handle API requests and return clean JSON to the frontend.
+- 🔍 **Canlı Otomatik Tamamlama (Debounced Autocomplete)**: Arama çubuğuna yazıldığı anda (300ms geciktirme ile) hızlı öneri listesi sunar.
+- ✨ **Popüler Keşifler (Slider Carousel)**: Ana sayfada IMDb'nin en popüler kültür filmlerini sergileyen yatay kaydırılabilir özel film slider'ı.
+- 🎭 **Gelişmiş Filtre Seçenekleri**:
+  - Tür Filtresi (*Film* / *Dizi*)
+  - Yıl Filtresi (*Örn: 2024*)
+  - Kategori Filtresi (*Aksiyon, Komedi, Dram, Korku, Bilim Kurgu, Animasyon*)
+- 🎬 **Detaylı Film Modalı**: Film kartına tıklandığında açılan popup pencerede:
+  - Yüksek kaliteli afiş
+  - Yönetmen ve oyuncu kadrosu
+  - Renklendirilmiş IMDb Puanı ⭐ (>7 üzeri yeşil renk vurgusu)
+  - Detaylı film özeti (Plot)
+- 🌙 / 🌸 **Gündüz ve Gece Modu (Dynamic Glassmorphic Theme)**:
+  - Kullanıcı tercihine göre anında tema değiştirme.
+  - Seçilen tema ve son yapılan arama `localStorage` ile taranarak sayfa yenilense dahi korunur.
+- 📱 **Tamamen Responsive Tasarım**: Mobil, tablet ve masaüstü cihazlarla %100 uyumlu layout.
 
 ---
 
-## Non-Functional Requirements
+## 🛠️ Kullanılan Teknolojiler
 
-1. **Performance**
-   - API calls should be efficient. Avoid unnecessary repeated requests.
-
-2. **Usability**
-   - The interface should be simple, intuitive, and user-friendly.
-   - The design is up to you.
-
-3. **Portability**
-   - The application should work across modern browsers and be responsive for different screen sizes.
-
-4. **Maintainability**
-   - Code should be modular, well-documented, and easy to extend.
+| Teknoloji | Açıklama |
+| :--- | :--- |
+| **HTML5** | Semantik web yapısı ve modern UI elemanları |
+| **CSS3** | Glassmorphism (buzlu cam efekti), CSS Değişkenleri, Flexbox & Grid |
+| **Vanilla JavaScript (ES6+)** | `async/await`, `Fetch API`, Debouncing, DOM manipülasyonu, `localStorage` |
+| **OMDb API** | Film, dizi, IMDb puanı ve afiş verilerini sağlayan REST API |
+| **Google Fonts (Poppins)** | Modern ve okunabilir tipografi |
 
 ---
 
-## Deliverables & Submission
+## 📁 Proje Dizin Yapısı
 
-Once you have completed the project, ensure you have the following ready:
-- A **public GitHub repository** containing your project code (created via the template).
-- A **hosted version** of the project deployed on GitHub Pages.
+```
+omdb-project/
+├── index.html        # Ana HTML yapısı ve modal bileşenleri
+├── style.css         # Glassmorphism stil tanımları, renk değişkenleri ve responsive kurallar
+├── app.js            # OMDb API entegrasyonu, debounced arama, slider ve tema kontrolleri
+└── README.md         # Proje dokümantasyonu
+```
+
+---
+
+## 🚀 Kurulum ve Çalıştırma
+
+Proje herhangi bir derleme (build) veya sunucu gerektirmez. Doğrudan tarayıcıda çalıştırılabilir.
+
+1. **Depoyu klonlayın:**
+   ```bash
+   git clone https://github.com/iamhilals/omdb-project.git
+   cd omdb-project
+   ```
+
+2. **Uygulamayı Çalıştırın:**
+   - `index.html` dosyasını çift tıklayarak tarayıcınızda açın veya Live Server eklentisi ile çalıştırın.
+
+---
+
+## 🔑 OMDb API Yapılandırması
+
+Uygulama varsayılan olarak tanımlı bir OMDb API anahtarı ile çalışmaktadır. Kendi API anahtarınızı kullanmak isterseniz `app.js` dosyasının en üstündeki `API_KEY` sabitini değiştirebilirsiniz:
+
+```javascript
+// app.js
+const API_KEY = 'YOUR_OMDB_API_KEY';
+const BASE_URL = 'https://www.omdbapi.com/';
+```
+
+> 💡 *Ücretsiz OMDb API anahtarı almak için [omdbapi.com/apikey.aspx](https://www.omdbapi.com/apikey.aspx) adresini ziyaret edebilirsiniz.*
+
+---
+
+## 🌐 GitHub Pages İle Yayınlama
+
+Bu projeyi GitHub Pages üzerinde canlıya almak için:
+1. Depo ayarlarınıza gidin (**Settings**).
+2. Sol menüden **Pages** sekmesine tıklayın.
+3. Source bölümünden `main` (veya `master`) dalını ve `/root` klasörünü seçip **Save** butonuna basın.
+
+---
+
+## 📜 Lisans
+
+Bu proje açık kaynaklı bir çalışmadır.
+
+<div align="center">
+  <sub>FilmFluff • Sinema Keşif Platformu 🍿</sub>
+</div>
