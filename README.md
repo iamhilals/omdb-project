@@ -101,14 +101,7 @@ const BASE_URL = 'https://www.omdbapi.com/';
 
 ---
 
-## 🌐 GitHub Pages İle Yayınlama
 
-Bu projeyi GitHub Pages üzerinde canlıya almak için:
-1. Depo ayarlarınıza gidin (**Settings**).
-2. Sol menüden **Pages** sekmesine tıklayın.
-3. Source bölümünden `main` (veya `master`) dalını ve `/root` klasörünü seçip **Save** butonuna basın.
-
----
 
 ## 📜 Lisans
 
